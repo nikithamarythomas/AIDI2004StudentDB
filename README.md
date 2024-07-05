@@ -1,4 +1,10 @@
-# AIDI2004StudentDB
+# Student Management System
+
+## Accessing the Website
+You can access the live application through the following URL:
+
+[https://aidi2004studentdb.onrender.com](https://aidi2004studentdb.onrender.com)
+
 
 ## Overview
 AIDI2004StudentDB is a project repository for managing a student database using Flask and MySQL. The project demonstrates CRUD operations through a RESTful API. The repository includes necessary scripts and files to set up and run the application.

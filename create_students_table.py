@@ -1,36 +1,19 @@
-import sqlite3
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-# Connect to SQLite database
-conn = sqlite3.connect('students.db')
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///students.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-# Create a cursor
-cur = conn.cursor()
+class Student(db.Model):
+    student_id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
+    dob = db.Column(db.Date, nullable=False)
+    amount_due = db.Column(db.Float, nullable=False)
 
-# SQL command to create a table
-create_table_query = '''
-CREATE TABLE IF NOT EXISTS students (
-    student_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    first_name TEXT NOT NULL,
-    last_name TEXT NOT NULL,
-    dob DATE NOT NULL,
-    amount_due REAL NOT NULL
-);
-'''
-
-# Execute the SQL command
-cur.execute(create_table_query)
-
-# Commit the transaction
-conn.commit()
-
-# Validate table creation
-cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='students';")
-table_exists = cur.fetchone()
-
-if table_exists:
-    print("Table 'students' created successfully.")
-else:
-    print("Failed to create table 'students'.")
-
-# Close the connection
-conn.close()
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+    print("Database created successfully.")

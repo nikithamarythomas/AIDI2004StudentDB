@@ -1,3 +1,4 @@
+
 from flask import Flask, request, jsonify, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -67,3 +68,4 @@ def update_student(id):
 
 if __name__ == '__main__':
     app.run(debug=True)
+

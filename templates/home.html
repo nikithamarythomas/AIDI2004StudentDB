@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333; /* Dark background color */
+            color: #fff; /* Light text color */
+            text-align: center; /* Center align text */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 80%;
+            padding: 20px;
+            background-color: #444; /* Darker container background color */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .typing-animation {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2em;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #fff; /* Simulates blinking cursor */
+            padding-right: 5px; /* Adjusts space for cursor */
+            animation: typing 4s steps(30, end), blink-caret 0.75s infinite;
+            margin-bottom: 20px; /* Space between header and buttons */
+            margin: 0 auto; /* Center horizontally */
+            text-align: center; /* Center text within container */
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            50% { border-color: transparent; }
+            51%, to { border-color: #fff; }
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 30px 0; /* Adjust margin top and bottom to move buttons down */
+            display: flex;
+            justify-content: center; /* Center align buttons horizontally */
+        }
+        li {
+            margin: 0 10px; /* Space between buttons */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff; /* Primary button color */
+            border: none;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker hover color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="typing-animation">Welcome to Student Management System !</h1>
+        <ul>
+            <li><button onclick="window.location.href='/add'">Add Student</button></li>
+            <li><button onclick="window.location.href='/view'">View Students</button></li>
+        </ul>
+    </div>
+</body>
+</html>
